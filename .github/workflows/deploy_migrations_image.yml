@@ -27,5 +27,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           file: ./nostream/Dockerfile.railwayapp
+          context: ./nostream
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/nostream_migrations:latest
