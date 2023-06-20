@@ -26,7 +26,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          file: ./nostream/Dockerfile.railwayapp
-          context: ./nostream
+          file: ./Dockerfile.migrations
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/nostream_migrations:latest
