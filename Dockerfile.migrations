@@ -16,14 +16,10 @@ ENV DB_NAME=$PGDATABASE
 ENV DB_USER=$PGUSER
 ENV DB_PASSWORD=$PGPASSWORD
 
-COPY ["package.json", "package-lock.json","knexfile.js","./"]
+COPY ["nostream/package.json", "nostream/package-lock.json", "nostream/knexfile.js", "./"]
 
 ADD nostream/migrations /build/migrations
 
 RUN npm install -g knex@2.4.0 && npm install --quiet
 
-RUN npm run db:migrate
-
-COPY . .
-
-ENTRYPOINT ["npm", "run", "build"]
+ENTRYPOINT ["npm", "run", "db:migrate"]
