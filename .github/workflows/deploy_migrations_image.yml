@@ -28,4 +28,4 @@ jobs:
         with:
           file: ./Dockerfile.migrations
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/nostream_migrations:latest
+          tags: ${{ github.actor }}/nostream_migrations:latest
