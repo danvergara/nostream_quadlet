@@ -1,9 +1,8 @@
 name: push_migrations
 
-# on:
-  # schedule:
-    # - cron: '0 10 * * 5'
-on: [push, pull_request]
+on:
+  schedule:
+    - cron: '0 14 * * 1'
 
 jobs:
   push_migrations:
