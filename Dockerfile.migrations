@@ -1,0 +1,25 @@
+FROM node:18-alpine3.16 as build
+
+ARG PORT
+ARG PGHOST
+ARG PGPORT
+ARG PGDATABASE
+ARG PGUSER
+ARG PGPASSWORD
+
+WORKDIR /build
+
+## Build Setup for Railways
+ENV DB_HOST=$PGHOST
+ENV DB_PORT=$PGPORT
+ENV DB_NAME=$PGDATABASE
+ENV DB_USER=$PGUSER
+ENV DB_PASSWORD=$PGPASSWORD
+
+COPY ["nostream/package.json", "nostream/package-lock.json", "nostream/knexfile.js", "./"]
+
+ADD nostream/migrations /build/migrations
+
+RUN npm install -g knex@2.4.0 && npm install --quiet
+
+ENTRYPOINT ["npm", "run", "db:migrate"]
