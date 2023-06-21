@@ -1,0 +1,13 @@
+[Install]
+WantedBy=default.target
+WantedBy=nostream-migrations.service
+
+[Container]
+Image=docker.io/library/postgres:15
+ContainerName=nostream-db
+Volume=nostream-db.volume:/var/lib/postgresql/data
+Network=nostream.network
+PublishPort=5432:5432
+Environment=POSTGRES_DB=nostr_ts_relay
+Environment=POSTGRES_USER=nostr_ts_relay
+Environment=POSTGRES_PASSWORD=nostr_ts_relay

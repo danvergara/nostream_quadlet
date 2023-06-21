@@ -1,0 +1,12 @@
+[Install]
+WantedBy=default.target
+
+[Container]
+Image=ghcr.io/danvergara/nostream_migrations:latest
+ContainerName=nosream-migrations
+Network=nostream.network
+Environment=DB_PASSWORD=nostr_ts_relay
+Environment=DB_NAME=nostr_ts_relay
+Environment=DB_USER=nostr_ts_relay
+Environment=DB_PORT=5432
+Environment=DB_HOST=nostream-db
