@@ -19,9 +19,10 @@ reload:
 	systemctl --user daemon-reload
 
 .PHONY: start
-## start: start the service
+## start: start the services
 start:
 	systemctl --user start nostream-migrations.service
+	systemctl --user start nostream-cache.service
 
 .PHONY: help
 ## help: Prints this help message

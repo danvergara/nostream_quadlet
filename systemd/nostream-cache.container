@@ -1,0 +1,9 @@
+[Install]
+WantedBy=default.target
+
+[Container]
+Image=docker.io/redis:7.0.5-alpine3.16
+ContainerName=nostream-cache
+Network=nostream.network
+Volume=nostream-cache.volume:/data
+Exec=redis-server --loglevel warning --requirepass nostr_ts_relay
