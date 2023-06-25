@@ -1,5 +1,6 @@
 [Install]
 WantedBy=default.target
+WantedBy=nostream-pod.service
 
 [Container]
 Image=ghcr.io/danvergara/nostream_migrations:latest
