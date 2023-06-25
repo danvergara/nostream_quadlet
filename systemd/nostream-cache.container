@@ -1,5 +1,6 @@
 [Install]
 WantedBy=default.target
+WantedBy=nostream-pod.service
 
 [Container]
 Image=docker.io/redis:7.0.5-alpine3.16

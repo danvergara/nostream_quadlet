@@ -1,0 +1,15 @@
+[Install]
+WantedBy=default.target
+
+[Unit]
+After=nostream-cache.service
+
+[Kube]
+# Point to the yaml file in the same directory
+Yaml=nostream-pod.yml
+# Use the nostream network
+Network=nostream.network
+# Publish the nostream port
+PublishPort=8008:8008
+# Use the nostream config map in the same directory
+ConfigMap=nostream-configmap.yml

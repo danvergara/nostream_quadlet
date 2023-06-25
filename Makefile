@@ -21,8 +21,7 @@ reload:
 .PHONY: start
 ## start: start the services
 start:
-	systemctl --user start nostream-migrations.service
-	systemctl --user start nostream-cache.service
+	systemctl --user start nostream-pod.service
 
 .PHONY: help
 ## help: Prints this help message
