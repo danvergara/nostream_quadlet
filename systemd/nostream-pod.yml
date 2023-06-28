@@ -15,7 +15,10 @@ spec:
       name: nostream
       env:
         - name: SECRET
-          value: e3a058bb66820ccb1df463a97238b0164c11ffad19a30324cbe85c65d0ba4e905178c85e9d7daa7387a432b84bd06cd65daf198c3bdaf881766ba21328b29584ce4391798e48ba56345b5cb632c67fa3669c23d9a2f5879372f65edd3b994c96ba3dfeac17d77318056ba41af9997991ccdbe61fdbf3f678b5fec35dfc605544
+          valueFrom:
+            secretKeyRef:
+              name: nostream-secret-kube
+              key: password
         - name: RELAY_PORT
           value: 8008
         # Master
@@ -28,7 +31,10 @@ spec:
         - name: DB_USER
           value: nostr_ts_relay
         - name: DB_PASSWORD
-          value: nostr_ts_relay
+          valueFrom:
+            secretKeyRef:
+              name: nostream-db-password-kube
+              key: password
         - name: DB_NAME
           value: nostr_ts_relay
         - name: DB_MIN_POOL_SIZE
@@ -42,40 +48,6 @@ spec:
           value: 2
         - name: READ_REPLICA_ENABLED
           value: 'false'
-        # Read Replica No. 1
-        - name: RR0_DB_HOST
-          value: db
-        - name: RR0_DB_PORT
-          value: 5432
-        - name: RR0_DB_USER
-          value: nostr_ts_relay
-        - name: RR0_DB_PASSWORD
-          value: nostr_ts_relay
-        - name: RR0_DB_NAME
-          value: nostr_ts_relay
-        - name: RR0_DB_MIN_POOL_SIZE
-          value: 16
-        - name: RR0_DB_MAX_POOL_SIZE
-          value: 64
-        - name: RR0_DB_ACQUIRE_CONNECTION_TIMEOUT
-          value: 10000
-        # Read Replica No. 2
-        - name: RR1_DB_HOST
-          value: db
-        - name: RR1_DB_PORT
-          value: 5432
-        - name: RR1_DB_USER
-          value: nostr_ts_relay
-        - name: RR1_DB_PASSWORD
-          value: nostr_ts_relay
-        - name: RR1_DB_NAME
-          value: nostr_ts_relay
-        - name: RR1_DB_MIN_POOL_SIZE
-          value: 16
-        - name: RR1_DB_MAX_POOL_SIZE
-          value: 64
-        - name: RR1_DB_ACQUIRE_CONNECTION_TIMEOUT
-          value: 10000
         # Add RR2, RR3, etc. to configure more read replicas
         # Redis
         - name: REDIS_HOST
@@ -85,7 +57,10 @@ spec:
         - name: REDIS_USER
           value: default
         - name: REDIS_PASSWORD
-          value: nostr_ts_relay
+          valueFrom:
+            secretKeyRef:
+              name: nostream-cache-password-kube
+              key: password
         - name: TOR_HOST
           value: tor_proxy
         - name: TOR_CONTROL_PORT
