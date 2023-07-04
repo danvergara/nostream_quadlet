@@ -11,11 +11,11 @@ data:
       pubkey: ba8bd241daa1ee240af45456710dda963ca04e4813eb41e51ff5a375dbfca42a 
       contact: daniel.omar.vergara@gmail.com
     payments:
-      enabled: false
-      processor: zebedee
+      enabled: true
+      processor: nodeless
       feeSchedules:
         admission:
-          - enabled: false
+          - enabled: true
             description: Admission fee charged per public key in msats (1000 msats = 1 satoshi)
             amount: 1000000
             whitelists:
@@ -37,7 +37,7 @@ data:
         invoiceURL: https://getalby.com/lnurlp/your-username
       nodeless:
         baseURL: https://nodeless.io
-        storeId: your-nodeless-io-store-id
+        storeId: e9a424d4-54cd-41de-ba25-5afcc696bf79
       opennode:
         baseURL: api.opennode.com
         callbackBaseURL: https://nostream.your-domain.com/callbacks/opennode
