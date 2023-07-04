@@ -75,9 +75,15 @@ spec:
           value: "" 
         # Nodeless.io
         - name: NODELESS_API_KEY
-          value: "" 
+          valueFrom:
+            secretKeyRef:
+              name: nostream-nodeless-api-key-kube
+              key: password
         - name: NODELESS_WEBHOOK_SECRET
-          value: "" 
+          valueFrom:
+            secretKeyRef:
+              name: nostream-nodeless-webhook-secret-kube
+              key: password
         # OpenNode
         - name: OPENNODE_API_KEY
           value: "" 
