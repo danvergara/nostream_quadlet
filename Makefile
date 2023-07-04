@@ -40,7 +40,7 @@ secrets: nostream-secret postgres-password redis-password nodeless-api-key-secre
 nostream-secret:
 	kubectl create secret generic \
     --from-literal=password="${SECRET}" \
-   nostrean-secret-kube \
+   nostream-secret-kube \
     --dry-run=client \
     -o yaml | \
     podman kube play - && \
