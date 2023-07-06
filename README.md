@@ -64,7 +64,7 @@ make quadlet-dry-run
 Copy the content of the provided Nginx configuration file to the server configuration file.
 
 ```
-cp nostream-quadlet.conf /etc/nginx/conf.d/nostream-quadlet.conf
+cp nostream_quadlet.conf /etc/nginx/conf.d/nostream-quadlet.conf
 ```
 
 ```
