@@ -5,8 +5,8 @@ metadata:
 data:
   settings.yaml: |
     info:
-      relay_url: wss://nostream.danvergara.com
-      name: nostream.danvergara.com
+      relay_url: wss://relay.danvergara.com
+      name: relay.danvergara.com
       description: A nostr relay written in Typescript.
       pubkey: ba8bd241daa1ee240af45456710dda963ca04e4813eb41e51ff5a375dbfca42a 
       contact: daniel.omar.vergara@gmail.com
