@@ -20,7 +20,9 @@ data:
             amount: 5000000
             whitelists:
               pubkeys:
-                - replace-with-your-pubkey-in-hex
+                # babydonthurtme: meme account
+                # npub194pl7s248a8zrg7vxns9ep7gxmpsnh2lh9yf5ya5cfusmf8xcg5qz2u84x
+                - 2d43ff41553f4e21a3cc34e05c87c836c309dd5fb9489a13b4c2790da4e6c228
               event_kinds:
                 - 9735 # Nip-57 Lightning Zap Receipts
     paymentsProcessors:
