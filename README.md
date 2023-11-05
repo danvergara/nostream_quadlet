@@ -35,6 +35,19 @@ git clone https://github.com/danvergara/nostream_quadlet.git
 cd nostream_quadlet
 ```
 
+Generate `Podman` secrets
+
+```
+export NOSTREAM_CACHE_PASSWORD=foo
+export NOSTREAM_DB_PASSWORD=foo
+
+# If it's the paid relay
+make secrets
+
+# For public relay
+make public-relay-secrets
+```
+
 Copy the files to `$(HOME)/.config/containers/systemd ` 
 
 ```
