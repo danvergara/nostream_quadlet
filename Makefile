@@ -3,7 +3,7 @@ SECRET := $$(openssl rand -hex 128)
 .PHONY: quadlet-dry-run
 ## rm-systemd: Run quadlet executable in dry-run mode 
 quadlet-dry-run:
-	/usr/libexec/podman/quadlet -dryrun -user
+	/usr/libexec/podman/quadlet --dryrun --user
 
 .PHONY: rm-systemd
 ## rm-systemd: Delete all the content in the systemd dir
