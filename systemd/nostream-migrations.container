@@ -6,6 +6,7 @@ WantedBy=nostream-pod.service
 Image=ghcr.io/danvergara/nostream_migrations:latest
 ContainerName=nosream-migrations
 Network=nostream.network
+AutoUpdate=registry
 Environment=DB_PASSWORD=nostr_ts_relay
 Environment=DB_NAME=nostr_ts_relay
 Environment=DB_USER=nostr_ts_relay
