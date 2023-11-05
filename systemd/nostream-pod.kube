@@ -13,3 +13,5 @@ Network=nostream.network
 PublishPort=8008:8008
 # Use the nostream config map in the same directory
 ConfigMap=nostream-configmap.yml
+# podman run equivalent: --label “io.containers.autoupdate=registry”
+AutoUpdate=registry
