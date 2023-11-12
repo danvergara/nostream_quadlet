@@ -1,7 +1,7 @@
 SECRET := $$(openssl rand -hex 128)
 
 .PHONY: quadlet-dry-run
-## rm-systemd: Run quadlet executable in dry-run mode 
+## quadlet-dry-run: Run quadlet executable in dry-run mode
 quadlet-dry-run:
 	/usr/libexec/podman/quadlet --dryrun --user
 
@@ -51,12 +51,6 @@ secret:
 ## secrets: Creates a podman secrets
 secrets: nostream-secret postgres-password redis-password nodeless-api-key-secret nodeless-webhook-secret
 	@echo "generating secrets"
-
-
-.PHONY: public-relay-secrets
-## public-relay-secrets: Creates a podman secrets
-public-relay-secrets: nostream-secret postgres-password redis-password
-	@echo "generating public relay secrets"
 
 .PHONY: nostream-secret
 ## Generate a secret with: openssl rand -hex 128
