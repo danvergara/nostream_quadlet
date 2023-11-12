@@ -40,19 +40,22 @@ Generate `Podman` secrets
 ```
 export NOSTREAM_CACHE_PASSWORD=foo
 export NOSTREAM_DB_PASSWORD=foo
+export NODELESS_API_KEY=bar
+export NODELESS_WEBHOOK_SECRET=bar
 
-# If it's the paid relay
 make secrets
-
-# For public relay
-make public-relay-secrets
 ```
 
 Copy the files to `$(HOME)/.config/containers/systemd ` 
 
+If it's paid relay, run `cp-systemd-paid`, which copies every Quadlet file, except the
+`nostream-public-configmap.yml` file.
+
 ```
-make cp-systemd
+make cp-systemd-paid
 ```
+
+Otherwise, run `cp-systemd-public`, which copies every Quadlet file, except the `nostream-configmap.yml` file.
 
 Force the generator by calling:
 

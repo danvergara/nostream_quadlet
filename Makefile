@@ -1,7 +1,7 @@
 SECRET := $$(openssl rand -hex 128)
 
 .PHONY: quadlet-dry-run
-## rm-systemd: Run quadlet executable in dry-run mode 
+## quadlet-dry-run: Run quadlet executable in dry-run mode
 quadlet-dry-run:
 	/usr/libexec/podman/quadlet --dryrun --user
 
@@ -13,14 +13,14 @@ rm-systemd:
 .PHONY: cp-systemd-paid
 ## cp-systemd-paid: copy all the content of local systemd dir to the systemd dir for paid relay
 cp-systemd-paid:
-	cp systemd/* $(home)/.config/containers/systemd
-	rm $(home)/.config/containers/systemd/nostream-public-configmap.yml
+	cp systemd/* $(HOME)/.config/containers/systemd
+	rm $(HOME)/.config/containers/systemd/nostream-public-configmap.yml
 
 .PHONY: cp-systemd-public
 ## cp-systemd-public: copy all the content of local systemd dir to the systemd dir for public relay
 cp-systemd-public:
-	cp systemd/* $(home)/.config/containers/systemd
-	rm $(home)/.config/containers/systemd/nostream-configmap.yml
+	cp systemd/* $(HOME)/.config/containers/systemd
+	rm $(HOME)/.config/containers/systemd/nostream-configmap.yml
 
 .PHONY: cp-nginx-conf
 cp-nginx-conf:
@@ -51,12 +51,6 @@ secret:
 ## secrets: Creates a podman secrets
 secrets: nostream-secret postgres-password redis-password nodeless-api-key-secret nodeless-webhook-secret
 	@echo "generating secrets"
-
-
-.PHONY: public-relay-secrets
-## public-relay-secrets: Creates a podman secrets
-public-relay-secrets: nostream-secret postgres-password redis-password
-	@echo "generating public relay secrets"
 
 .PHONY: nostream-secret
 ## Generate a secret with: openssl rand -hex 128
